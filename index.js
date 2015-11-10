@@ -53,18 +53,19 @@ module.exports = {
     configOptions.cacheLocation = cacheLocation;
   },
 
-  mochalint: function (paths, options) {
+  formatter: function(format) {
+    formatter = cli.getFormatter(format);
+  },
+
+  mochalint: function (paths) {
     configOptions.configFile = configOptions.configFile || '.eslintrc';
     cli = new CLIEngine(configOptions);
-    if (options && options.formatter) {
-      format = options.formatter;
-    }
     describe('eslint-filter-coffee', function () {
       paths.forEach(function (p) {
         it('should have no errors in ' + p, function () {
           try {
             report = cli.executeOnFiles([ p ]);
-            formatter = cli.getFormatter(format);
+            formatter = formatter || cli.getFormatter();
           } catch (err) {
             throw new Error(err);
           }
