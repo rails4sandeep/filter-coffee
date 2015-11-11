@@ -1,5 +1,10 @@
+![Alt text](http://farm9.staticflickr.com/8227/8470665558_8ed74d2775_o.jpg "filter-coffee")
+
+
+
 # filter-coffee
 filter-coffee helps you to lint your nodejs projects using eslint as mocha tests.
+
 For more information about mocha go to https://mochajs.org/.
 For more information about eslint go to http://eslint.org/.
 
