@@ -11,7 +11,7 @@
     "eslint",
     "mochaplugin"
   ],
-  "author": "Sandeep Kumar <sandeep.kumar@vocus.com.au> (http://vocus.com.au)",
+  "author": "Sandeep Kumar <rails4sandeep@gmail.com>",
   "license": "MIT License",
   "dependencies": {
     "eslint": "^1.8.0",
