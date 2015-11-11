@@ -1,60 +1,55 @@
 'use strict';
 var CLIEngine = require('eslint').CLIEngine;
 var chalk = require('chalk');
-var cli;
+var cli = new CLIEngine({});
 var report;
 var formatter;
-var format = '';
 var configOptions = {};
 
 module.exports = {
 
-  configFile: function(config) {
+  configFile: function (config) {
     configOptions.configFile = config || '.eslintrc';
   },
 
-  ignorePath: function(ignore) {
+  ignorePath: function (ignore) {
     configOptions.ignorePath = ignore || '.eslintignore';
   },
 
-  envs: function(envs) {
+  envs: function (envs) {
     configOptions.envs = envs;
   },
 
-  extensions: function(extns) {
+  extensions: function (extns) {
     configOptions.extensions = extns;
   },
 
-  globals: function(globals) {
+  globals: function (globals) {
     configOptions.globals = globals;
   },
 
-  rulePaths: function(rulePaths) {
+  rulePaths: function (rulePaths) {
     configOptions.rulePaths = rulePaths;
   },
 
-  rules: function(rules) {
+  rules: function (rules) {
     configOptions.rules = rules;
   },
 
-  parser: function(parser) {
+  parser: function (parser) {
     configOptions.parser = parser;
   },
 
-  cache: function(cache) {
+  cache: function (cache) {
     configOptions.cache = cache;
   },
 
-  cacheFile: function(cacheFile) {
+  cacheFile: function (cacheFile) {
     configOptions.cacheFile = cacheFile;
   },
 
-  cacheLocation: function(cacheLocation) {
+  cacheLocation: function (cacheLocation) {
     configOptions.cacheLocation = cacheLocation;
-  },
-
-  formatter: function(format) {
-    formatter = cli.getFormatter(format);
   },
 
   mochalint: function (paths) {
@@ -65,18 +60,17 @@ module.exports = {
         it('should have no errors in ' + p, function () {
           try {
             report = cli.executeOnFiles([ p ]);
-            formatter = formatter || cli.getFormatter();
+            formatter = cli.getFormatter('stylish');
+
+            if (report && report.errorCount > 0) {
+              throw new Error(chalk.red('code did not pass lint rules') + formatter(report.results));
+            }
+
+            if (report && report.warningCount > 0) {
+              console.log(chalk.yellow('code has lint warnings') + formatter(report.results));
+            }
           } catch (err) {
-            throw new Error(err);
-          }
-
-          if (report && report.errorCount > 0) {
-            throw new Error(chalk.red('code did not pass lint rules') + formatter(report.results));
-          }
-
-          if (report && report.warningCount > 0) {
-            console.log(chalk.yellow('code has lint warnings'));
-            console.log(formatter(report.results));
+            console.log(err);
           }
         });
       });
