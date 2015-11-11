@@ -1,0 +1,25 @@
+{
+  "name": "filter-coffee",
+  "version": "1.0.0",
+  "description": "eslint as mocha tests with a number of configuration options",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mocha",
+    "eslint",
+    "mochaplugin"
+  ],
+  "author": "Sandeep Kumar <sandeep.kumar@vocus.com.au> (http://vocus.com.au)",
+  "license": "MIT License",
+  "dependencies": {
+    "eslint": "^1.8.0",
+    "mocha": "^2.3.3",
+    "chalk": "^1.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rails4sandeep/filter-coffee.git"
+  }
+}
