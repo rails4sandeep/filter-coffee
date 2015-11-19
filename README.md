@@ -106,4 +106,4 @@ Raise the issue on the github repo https://github.com/rails4sandeep/filter-coffe
 
 ##Improve
 
-Would you like to improve filter-coffee, send a fork request
+Would you like to improve filter-coffee, send a pull request
