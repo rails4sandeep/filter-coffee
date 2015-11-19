@@ -99,3 +99,11 @@ name of the file or directory where the cache will be stored (default: .estlintc
 ```javascript
 coffee.cacheLocation('path/to/cache/file');
 ```
+
+##Issues
+
+Raise the issue on the github repo https://github.com/rails4sandeep/filter-coffee/issues
+
+##Improve
+
+Would you like to improve filter-coffee, send a fork request
